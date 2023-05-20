@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="/styles/main.css">
+    <title>Авторы</title>
+</head>
+<body>
+    <header>
+        <%- include('header'); %>
+    </header>
+    <div class="author-list">
+        <div class="container">
+            <ol class="author-list-list">
+
+            </ol>
+        </div>
+    </div>
+    <div class="add-author">
+        <div class="container">
+            <form action="" class="add-author-form">
+                <input type="text" name="authorName" placeholder="Введите автора...">
+                <br><button type="submit">Добавить</button>
+            </form>
+        </div>
+    </div>
+    <script src="/js/authors.js"></script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="/styles/main.css">
+    <title>Просмотр статьи</title>
+</head>
+<body>
+    <header>
+        <%- include('header'); %>
+    </header>
+    <div class="previous-next">
+        <div class="container">
+            <div class="previous">
+                < Предыдущая статья
+            </div>
+            <div>|</div>
+            <div class="next">
+                Следующая статья >
+            </div>
+        </div>
+    </div>
+    <section class="view-article">
+      <div class="container">
+        <div class="name-article">
+            Article 1
+        </div>
+        <div class="text-article">
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odio repellat et repellendus, impedit ad vel perferendis exercitationem molestias corporis? Enim nisi consectetur accusamus aspernatur quo molestias vero, exercitationem eaque excepturi.
+        </div>
+        <div class="author">
+            Автор: <span>Van Bommel</span>
+        </div>
+      </div>  
+    </section>
+    <script src="/js/main.js"></script>
+</body>
+</html>

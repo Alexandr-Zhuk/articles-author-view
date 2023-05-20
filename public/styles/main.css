@@ -1,0 +1,52 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.menu {
+  display: flex;
+  flex-wrap: wrap;
+}
+.menu .menu-item {
+  margin-right: 10px;
+}
+.menu .menu-item a {
+  display: block;
+  padding: 10px;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.previous-next .container {
+  display: flex;
+  justify-content: flex-end;
+  font-size: 14px;
+  color: blue;
+}
+.previous-next .previous {
+  margin-right: 10px;
+  cursor: pointer;
+}
+.previous-next .next {
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.view-article .name-article {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+.view-article .author {
+  text-align: right;
+  margin-top: 15px;
+}
+.view-article .author span {
+  font-style: italic;
+  font-weight: 700;
+}/*# sourceMappingURL=main.css.map */
