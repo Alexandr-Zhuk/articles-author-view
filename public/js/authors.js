@@ -5,7 +5,7 @@ const renderAuthors = (data) => {
     let html = '';
     
     data.data.forEach(item => {
-        html += `<li class="author-item"><div class="author-name">${item.authorName}</div><div class="change-author">ред.</div></li>`;
+        html += `<li class="author-item"><div class="author-name" data-id="${item.id}">${item.authorName}</div><div class="change-author">ред.</div></li>`;
     });
     authorList.innerHTML = html;
 };
@@ -29,6 +29,7 @@ addForm.addEventListener('submit', addAuthor);
 authorList.addEventListener('click', (ev) => {
     if(ev.target.classList.contains('change-author')){
         const author =  ev.target.parentNode.querySelector('.author-name');
+        
         const oldName = author.innerHTML;
         author.innerHTML = `<input type="text" name="author" value="${author.innerHTML}">`;
         const authorInput = document.querySelector('input[name="author"]');
@@ -38,7 +39,7 @@ authorList.addEventListener('click', (ev) => {
             const newName = author.innerHTML;
             if(newName !== oldName){
                 const changeAuthor = async () => {
-                    const names = {oldName: oldName, newName: newName};
+                    const names = {id: author.dataset.id, newName: newName};
                     const data = await axios.post('/articles/authors/change', names)
                 }
                 changeAuthor();

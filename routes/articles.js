@@ -160,9 +160,9 @@ router.post('/authors/add', upload.none(), (req, res) => {
 
 router.post('/authors/change', (req, res) => {
     const names = req.body;
-    const findName = authorsList.find(item => item.authorName === names.oldName);
-    findName.authorName = names.newName;
-    console.log(authorsList);
+    names.id = Number(names.id);
+    const findElem = authorsList.find(item => item.id === names.id);
+    findElem.authorName = names.newName;
 })
 
 router.post('/personal', upload.none(), (req, res) => {
