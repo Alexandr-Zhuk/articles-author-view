@@ -49,4 +49,14 @@ body {
 .view-article .author span {
   font-style: italic;
   font-weight: 700;
+}
+
+.author-list-list .author-item {
+  display: flex;
+}
+.author-list-list .change-author {
+  color: blue;
+  font-size: 13px;
+  margin-left: 10px;
+  cursor: pointer;
 }/*# sourceMappingURL=main.css.map */

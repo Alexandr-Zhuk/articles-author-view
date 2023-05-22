@@ -2,7 +2,7 @@ const express = require('express');
 const multer  = require('multer');
 const path = require('path');
 
-const pathUp = path.join(__dirname + '../public/uploads');
+const pathUp = path.join(__dirname + '/../public/uploads');
 const upload = multer({ dest: pathUp });
 
 const Ajv = require('ajv');
@@ -13,7 +13,7 @@ const articlesList = [
     {
         id: 1,
         artName: 'Article #1', 
-        artText: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odio repellat et repellendus, impedit ad vel perferendis exercitationem molestias corporis? Enim nisi consectetur accusamus aspernatur quo molestias vero, exercitationem eaque excepturi.',
+        artText: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odio repellat et repellendus, impedit ad vel perferendis exercitationem molestias corporis? Enim nisi consectetur accusamus aspernatur quo molestias vero, exercitationem eaque excepturi. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odio repellat et repellendus, impedit ad vel perferendis exercitationem molestias corporis? Enim nisi consectetur accusamus aspernatur quo molestias vero, exercitationem eaque excepturi.',
         author: 1
     },
     {
@@ -25,7 +25,7 @@ const articlesList = [
     {
         id: 3,
         artName: 'Article #3', 
-        artText: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odio repellat et repellendus, impedit ad vel perferendis exercitationem molestias corporis? Enim nisi consectetur accusamus aspernatur quo molestias vero, exercitationem eaque excepturi.',
+        artText: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odio repellat et repellendus, impedit ad vel perferendis exercitationem molestias corporis? Enim nisi consectetur accusamus aspernatur quo molestias vero, exercitationem eaque excepturi.Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odio repellat et repellendus, impedit ad vel perferendis exercitationem molestias corporis? Enim nisi consectetur accusamus aspernatur quo molestias vero, exercitationem eaque excepturi.Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odio repellat et repellendus, impedit ad vel perferendis exercitationem molestias corporis? Enim nisi consectetur accusamus aspernatur quo molestias vero, exercitationem eaque excepturi.',
         author: 2
     },
 ];
@@ -36,11 +36,6 @@ const authorsList = [
     {id: 3, authorName: 'Lesya Ukrainka'},
 ];
 
-router.get('/', (req, res) => {
-    
-    //res.render('articles');
-});
-
 router.get('/add', (req, res) => {
     res.render('add_article');
 });
@@ -49,7 +44,6 @@ router.post('/add/create', upload.none(), (req, res) => {
     let data = req.body;
     
     data.author = Number(data.author);
-    
 
     const schema = {
         type: 'object',
@@ -115,7 +109,7 @@ router.post('/view-article/view', (req, res) => {
     if(newId < 1){
         newId = articlesList.length;
     }
-    
+
     const art = articlesList.find(item => item.id === newId);
     
     let authorItem = authorsList.find(item => item.id === art.author);
@@ -163,6 +157,13 @@ router.post('/authors/add', upload.none(), (req, res) => {
         res.json(validate.errors[0].message);
     }
 });
+
+router.post('/authors/change', (req, res) => {
+    const names = req.body;
+    const findName = authorsList.find(item => item.authorName === names.oldName);
+    findName.authorName = names.newName;
+    console.log(authorsList);
+})
 
 router.post('/personal', upload.none(), (req, res) => {
 

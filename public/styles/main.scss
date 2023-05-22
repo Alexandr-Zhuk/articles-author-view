@@ -62,3 +62,18 @@ body{
         }
     }
 }
+
+.author-list-list{
+
+    .author-item{
+        display: flex;
+    }
+
+    .change-author{
+        
+        color: blue;
+        font-size: 13px;
+        margin-left: 10px;
+        cursor: pointer;
+    }
+}
