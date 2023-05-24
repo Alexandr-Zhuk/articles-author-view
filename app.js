@@ -1,5 +1,6 @@
 const express = require('express');
 const articlesRouter = require('./routes/articles');
+const authorsRouter = require('./routes/authors');
 
 const server = express();
 
@@ -13,4 +14,5 @@ server.use(express.urlencoded({ extended: false}));
 
 server.use(express.static(__dirname + '/public'));
 server.use('/articles', articlesRouter);
+server.use('/authors', authorsRouter);
 

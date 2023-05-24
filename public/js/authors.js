@@ -11,14 +11,14 @@ const renderAuthors = (data) => {
 };
 
 const viewAuthors = async () => {
-    const data = await axios.get('/articles/authors/list');
+    const data = await axios.get('/authors/list');
     renderAuthors(data);
 };
 
 const addAuthor = async (ev) => {
     ev.preventDefault();
     const formData = new FormData(ev.target);
-    const data = await axios.post('/articles/authors/add', formData);
+    const data = await axios.post('/authors/add', formData);
     renderAuthors(data);
 };
 
@@ -40,7 +40,7 @@ authorList.addEventListener('click', (ev) => {
             if(newName !== oldName){
                 const changeAuthor = async () => {
                     const names = {id: author.dataset.id, newName: newName};
-                    const data = await axios.post('/articles/authors/change', names)
+                    const data = await axios.post('/authors/change', names)
                 }
                 changeAuthor();
             }

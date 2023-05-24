@@ -2,7 +2,7 @@ const articleForm = document.querySelector('.add-article-form');
 const authorsListSelect = document.querySelector('.author-list-select');
 
 const getAuthorsList = async () => {
-    const data = await axios.get('/articles/authors/list');
+    const data = await axios.get('/authors/list');
     let html = '';
     data.data.forEach((item) => {
         html += `<option value="${item.id}">${item.authorName}</option>`;
