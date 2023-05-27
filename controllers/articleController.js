@@ -1,7 +1,18 @@
 const articleModel = require('../models/articleModel');
+const authorController = require('../controllers/authorController');
 
 const getArticle = (id) => {
-    return articleModel.getOneArticle(id);
+    const art = articleModel.getOneArticle(id)
+    const authorId = art.author;
+    const author = authorController.getAuthor(authorId);
+
+    const artWithAuthor = {
+        id: art.id,
+        artName: art.artName,
+        artText: art.artText,
+        author: author.authorName
+    };
+    return artWithAuthor;
 };
 
 const getQtyArticles = () => {

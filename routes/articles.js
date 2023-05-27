@@ -2,7 +2,7 @@ const express = require('express');
 const multer  = require('multer');
 const path = require('path');
 const articleController = require('../controllers/articleController');
-const authorController = require('../controllers/authorController');
+
 const schemas = require('../validationSchemas/schemas');
 
 const pathUp = path.join(__dirname + '/../public/uploads');
@@ -37,17 +37,8 @@ router.get('/view-article', (req, res) => {
 
 router.get('/view-article/view', (req, res) => {
     const id = 1;
-    const art = articleController.getArticle(id);
-    const authorId = art.author;
-    const author = authorController.getAuthor(authorId);
-
-    const artWithAuthor = {
-        id: art.id,
-        artName: art.artName,
-        artText: art.artText,
-        author: author.authorName
-    };
-    
+    const artWithAuthor = articleController.getArticle(id);
+   
     res.json(artWithAuthor);
 });
 
@@ -62,16 +53,7 @@ router.post('/view-article/view', (req, res) => {
         newId = qtyArticles;
     }
 
-    const art = articleController.getArticle(newId);
-    const authorId = art.author;
-    const author = authorController.getAuthor(authorId);
- 
-    const artWithAuthor = {
-        id: art.id,
-        artName: art.artName,
-        artText: art.artText,
-        author: author.authorName
-    };
+    const artWithAuthor = articleController.getArticle(newId);
     
     res.json(artWithAuthor);
 });
